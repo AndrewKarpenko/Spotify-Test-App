@@ -1,1 +1,1 @@
-export { default } from './album';
+export { default } from './search';

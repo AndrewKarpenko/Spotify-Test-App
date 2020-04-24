@@ -1,12 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import {View, Text} from 'react-native';
 
-const Artist = () => {
+const Track = () => {
   return (
     <View>
-
+      <Text>
+        Track
+      </Text>
     </View>
-  )
+  );
 };
 
-export default Artist;
+export default Track;

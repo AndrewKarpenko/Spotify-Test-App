@@ -1,14 +1,10 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import Artist from '../../components/Artist';
 
-const Album = () => {
+const Search = () => {
   return (
-    <View>
-      <Text>
-        Album
-      </Text>
-    </View>
+    <Artist/>
   );
 };
 
-export default Album;
+export default Search;

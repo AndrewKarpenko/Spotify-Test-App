@@ -1,14 +1,10 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import Track from '../../components/Track';
 
-const Album = () => {
+const Tracks = () => {
   return (
-    <View>
-      <Text>
-        Album
-      </Text>
-    </View>
+    <Track/>
   );
 };
 
-export default Album;
+export default Tracks;
