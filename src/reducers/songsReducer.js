@@ -3,7 +3,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  songs: null,
+  songs: [],
 };
 
 export default function (state = initialState, action) {

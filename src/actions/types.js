@@ -2,7 +2,7 @@ export const SEARCH_ARTIST = 'SEARCH_ARTIST';
 
 export const GET_ALBUMS = 'GET_ALBUMS';
 
-export const GET_SONGS = 'GET_ALBUMS';
+export const GET_SONGS = 'GET_SONGS';
 
 export const EMIT_ERROR = 'EMIT_ERROR';
 
