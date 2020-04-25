@@ -37,7 +37,7 @@ const Search = () => {
 
   return (
     <SafeAreaView
-      style={styles.saveArea}
+      style={styles.safeArea}
     >
       <TextInput
         placeholderTextColor={'#828282'}
@@ -69,8 +69,9 @@ const Search = () => {
 export default Search;
 
 const styles = StyleSheet.create({
-  saveArea: {
-    flex: 1, backgroundColor: '#4C4C4C'
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#4C4C4C',
   },
   input: {
     margin: 20,
@@ -83,6 +84,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   flatList: {
-    marginHorizontal: 20
-  }
+    marginHorizontal: 20,
+  },
 });

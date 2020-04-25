@@ -2,7 +2,6 @@ import {instance as axios} from '../utils/interceptor';
 import {SEARCH_ARTIST, EMIT_ERROR} from './types';
 
 export const searchArtist = (name, offset, limit) => (dispatch) => {
-  console.log(name, offset, limit);
   if (!name) {
     dispatch({
       type: SEARCH_ARTIST,

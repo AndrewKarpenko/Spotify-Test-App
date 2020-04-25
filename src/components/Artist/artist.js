@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text, View, Image, TouchableOpacity} from 'react-native';
 
+import { noImageUrl } from '../../config';
+
 interface IProps {
   image: string,
   name: string,
@@ -8,8 +10,6 @@ interface IProps {
   popularity: number,
   navigate: () => void
 }
-
-const noAvatarImageUrl = 'https://pngimage.net/wp-content/uploads/2018/06/no-avatar-png.png';
 
 const Artist = (props: IProps) => {
   return (
@@ -27,7 +27,7 @@ const Artist = (props: IProps) => {
       <View style={{flex: 1}}>
         <Image
           style={{height: 90, width: 90, borderRadius: 45, borderColor: '#868686', borderWidth: 2}}
-          source={{uri: props.image || noAvatarImageUrl}}
+          source={{uri: props.image || noImageUrl}}
         />
       </View>
       <View style={{flex: 1}}>

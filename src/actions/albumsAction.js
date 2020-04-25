@@ -3,10 +3,10 @@ import {GET_ALBUMS, EMIT_ERROR} from './types';
 
 export const getAlbumsByArtist = (id) => (dispatch) => {
   axios.get(`artists/${id}/albums`)
-    .then((data) => {
+    .then(({data}) => {
       dispatch({
         type: GET_ALBUMS,
-        payload: data,
+        payload: data.items,
       });
     })
     .catch((err) => {
