@@ -1,9 +1,17 @@
 import React from 'react';
+import {Text} from 'react-native';
 import Album from '../../components/Album';
 
-const Albums = () => {
+const Albums = ({route}) => {
   return (
-    <Album/>
+    <>
+      <Album/>
+      <Text>
+        {
+          route.params?.id
+        }
+      </Text>
+    </>
   );
 };
 

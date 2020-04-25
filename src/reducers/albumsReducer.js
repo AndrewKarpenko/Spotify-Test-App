@@ -3,7 +3,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  album: null,
+  albums: null,
 };
 
 export default function (state = initialState, action) {
@@ -11,7 +11,7 @@ export default function (state = initialState, action) {
     case GET_ALBUMS:
       return {
         ...state,
-        album: action.payload,
+        albums: action.payload,
       };
   }
   return state;
