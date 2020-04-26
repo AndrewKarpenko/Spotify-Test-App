@@ -1,55 +1,39 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 
 import {noImageUrl} from '../../config';
 
-interface IProps {
-  image: string,
-  name: string,
-  release_date: string,
-  total_tracks: number,
-  navigate: () => void
-}
-
-const Album = (props: IProps) => {
+const Album = (props) => {
   return (
     <TouchableOpacity
       onPress={props.navigate}
-      style={{
-        padding: 20,
-        height: 100,
-        backgroundColor: '#1F1F1F',
-        marginVertical: 20,
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderRadius: 20,
-      }}>
-      <View style={{flex: 1}}>
+      style={styles.album}>
+      <View style={styles.wrapper}>
         <Image
-          style={{height: 90, width: 90, borderRadius: 45, borderColor: '#868686', borderWidth: 2}}
+          style={styles.albumImage}
           source={{uri: props.image || noImageUrl}}
         />
       </View>
-      <View style={{flex: 1}}>
+      <View style={styles.wrapper}>
         {
-          !!props.name && <Text style={{color: '#828282', justifyContent: 'space-around'}}>Name:</Text>
+          !!props.name && <Text style={styles.text}>Name:</Text>
         }
         {
-          !!props.release_date && <Text style={{color: '#828282', justifyContent: 'space-around'}}>Release date:</Text>
+          !!props.release_date && <Text style={styles.text}>Release date:</Text>
         }
         {
-          !!props.total_tracks && <Text style={{color: '#828282', justifyContent: 'space-around'}}>Total tracks:</Text>
+          !!props.total_tracks && <Text style={styles.text}>Total tracks:</Text>
         }
       </View>
-      <View style={{flex: 1, justifyContent: 'space-around'}}>
+      <View style={styles.wrapper}>
         {
-          !!props.name && <Text numberOfLines={1} ellipsizeMode='tail' style={{color: '#828282'}}>{props.name}</Text>
+          !!props.name && <Text numberOfLines={1} ellipsizeMode='tail' style={styles.text}>{props.name}</Text>
         }
         {
-          !!props.release_date && <Text numberOfLines={1} ellipsizeMode='tail' style={{color: '#828282', justifyContent: 'space-around'}}>{props.release_date}</Text>
+          !!props.release_date && <Text numberOfLines={1} ellipsizeMode='tail' style={styles.text}>{props.release_date}</Text>
         }
         {
-          !!props.total_tracks && <Text numberOfLines={1} ellipsizeMode='tail' style={{color: '#828282', justifyContent: 'space-around'}}>{props.total_tracks}</Text>
+          !!props.total_tracks && <Text numberOfLines={1} ellipsizeMode='tail' style={styles.text}>{props.total_tracks}</Text>
         }
       </View>
     </TouchableOpacity>
@@ -57,3 +41,38 @@ const Album = (props: IProps) => {
 };
 
 export default Album;
+
+Album.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  release_date: PropTypes.string,
+  total_tracks: PropTypes.number,
+  navigate: PropTypes.func
+};
+
+const styles = StyleSheet.create({
+  album: {
+    padding: 20,
+    height: 100,
+    backgroundColor: '#1F1F1F',
+    marginVertical: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 20,
+  },
+  albumImage: {
+    height: 90,
+    width: 90,
+    borderRadius: 45,
+    borderColor: '#868686',
+    borderWidth: 2
+  },
+  wrapper: {
+    flex: 1
+  },
+  text: {
+    color: '#828282',
+    justifyContent: 'space-around'
+  }
+});
+

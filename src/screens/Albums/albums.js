@@ -45,16 +45,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#4C4C4C',
   },
-  input: {
-    margin: 20,
-    color: '#828282',
-    fontSize: 34,
-    height: 50,
-    paddingHorizontal: 10,
-    borderWidth: 2,
-    borderColor: '#868686',
-    borderRadius: 5,
-  },
   flatList: {
     marginHorizontal: 20,
   },

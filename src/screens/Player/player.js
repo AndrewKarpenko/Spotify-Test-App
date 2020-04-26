@@ -28,22 +28,14 @@ const Player = ({route}) => {
     <SafeAreaView
       style={styles.safeArea}
     >
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={{fontSize: 50, color: '#828282'}}>
+      <View style={styles.captionWrapper}>
+        <Text style={styles.captionText}>
           {route.params.name}
         </Text>
       </View>
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'space-around', flexDirection: 'row'}}>
+      <View style={styles.buttonWrapper}>
         <TouchableOpacity
-          style={{
-            height: 100,
-            width: 100,
-            borderRadius: 50,
-            borderWidth: 3,
-            borderColor: '#868686',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          style={styles.button}
           onPress={play}
         >
           <Text>
@@ -51,15 +43,7 @@ const Player = ({route}) => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{
-            height: 100,
-            width: 100,
-            borderRadius: 50,
-            borderWidth: 3,
-            borderColor: '#868686',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          style={styles.button}
           onPress={stop}
         >
           <Text>
@@ -77,5 +61,29 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#4C4C4C',
+  },
+  button: {
+    height: 100,
+    width: 100,
+    borderRadius: 50,
+    borderWidth: 3,
+    borderColor: '#868686',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  captionWrapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  captionText: {
+    fontSize: 50,
+    color: '#828282',
+  },
+  buttonWrapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
   },
 });
