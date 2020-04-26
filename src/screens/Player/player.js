@@ -8,17 +8,20 @@ import {EMIT_ERROR} from '../../actions/types';
 const Player = ({route}) => {
 
   Sound.setCategory('Playback');
+  let whoosh;
 
   useEffect(() => {
-    return () => stop();
+    return () => whoosh && stop();
   }, []);
   const dispatch = useDispatch();
 
-  const whoosh = new Sound(route.params.url, null, (error) => {
-    if (error) {
-      dispatch({type: EMIT_ERROR});
-    }
-  });
+  if(route.params.url){
+    whoosh = new Sound(route.params.url, null, (error) => {
+      if (error) {
+        dispatch({type: EMIT_ERROR});
+      }
+    });
+  }
 
   const play = () => {
     whoosh.play();
@@ -37,24 +40,34 @@ const Player = ({route}) => {
           {route.params.name}
         </Text>
       </View>
-      <View style={styles.buttonWrapper}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={play}
-        >
-          <Text>
-            PLAY
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={stop}
-        >
-          <Text>
-            STOP
-          </Text>
-        </TouchableOpacity>
-      </View>
+      {
+        route.params.url
+        ?
+          <View style={styles.buttonWrapper}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={play}
+            >
+              <Text>
+                PLAY
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={stop}
+            >
+              <Text>
+                STOP
+              </Text>
+            </TouchableOpacity>
+          </View>
+          :
+          <View style={styles.captionWrapper}>
+            <Text style={styles.captionText}>
+              You can't play this composition
+            </Text>
+          </View>
+      }
     </SafeAreaView>
   );
 };
