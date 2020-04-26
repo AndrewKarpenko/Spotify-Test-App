@@ -2,7 +2,6 @@ import React from 'react';
 import {Text, View, Image, TouchableOpacity, StyleSheet} from 'react-native';
 
 import { noImageUrl } from '../../config';
-import Album from '../Album';
 
 const Artist = (props) => {
   return (

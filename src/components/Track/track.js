@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import Artist from '../Artist';
 
 const Track = (props) => {
   return (
