@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 
 import Navigator from './src/navigation';
 
-import {CLOSE_ERROR} from './src/actions/types';
+import {closeErrors} from './src/actions/errorAction';
 
 import store from './src/store';
 
@@ -20,7 +20,7 @@ const App = () => {
   };
 
   const closeError = () => {
-    store.dispatch({type: CLOSE_ERROR});
+    store.dispatch(closeErrors());
   };
 
   const unsubscribe = store.subscribe(getError);

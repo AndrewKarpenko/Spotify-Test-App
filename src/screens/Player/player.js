@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, SafeAreaView, StyleSheet} from 'react-nati
 import Sound from 'react-native-sound';
 import {useDispatch} from 'react-redux';
 
-import {EMIT_ERROR} from '../../actions/types';
+import {emitError} from '../../actions/errorAction';
 
 const Player = ({route}) => {
 
@@ -18,7 +18,7 @@ const Player = ({route}) => {
   if(route.params.url){
     whoosh = new Sound(route.params.url, null, (error) => {
       if (error) {
-        dispatch({type: EMIT_ERROR});
+        dispatch(emitError());
       }
     });
   }
