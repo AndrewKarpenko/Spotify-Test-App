@@ -1,14 +1,16 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, FlatList, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
 
 import Track from '../../components/Track';
-import { getSongsByAlbum } from '../../actions/tracksAction';
+import {getSongsByAlbum} from '../../actions/tracksAction';
 
 const Tracks = ({route}) => {
 
   const songs = useSelector(state => state.songs.songs);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   useEffect(() => {
     dispatch(getSongsByAlbum(route.params.id));
@@ -24,6 +26,7 @@ const Tracks = ({route}) => {
         data={songs}
         renderItem={({item}) => (
           <Track
+            navigate={() => navigation.navigate('Player', {url: item.preview_url, name: item.name})}
             name={item.name}
           />
         )}
@@ -53,4 +56,3 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
 });
-
