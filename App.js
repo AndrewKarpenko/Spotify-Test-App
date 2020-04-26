@@ -38,41 +38,19 @@ const App = () => {
         visible={visible}
       >
         <View
-          style={{
-            backgroundColor: 'rgba(0,0,0,.5)',
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          style={styles.modalOverview}
         >
           <View
-            style={{
-              height: '20%',
-              width: '80%',
-              borderRadius: 20,
-              backgroundColor: '#1F1F1F',
-              alignItems: 'center',
-              justifyContent: 'space-around',
-              borderWidth: 3,
-              borderColor: '#868686',
-            }}
+            style={styles.modalWindow}
           >
-            <Text style={{fontSize: 25, color: '#828282'}}>
+            <Text style={styles.header}>
               Something went wrong
             </Text>
             <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderWidth: 3,
-                borderColor: '#868686',
-                borderRadius: 25,
-                height: 50,
-                width: '90%'
-              }}
+              style={styles.button}
               onPress={closeError}
             >
-              <Text style={{color: '#828282'}}>
+              <Text style={styles.text}>
                 DISMISS
               </Text>
             </TouchableOpacity>
@@ -87,28 +65,37 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({
-  album: {
-    padding: 20,
-    height: 100,
-    backgroundColor: '#1F1F1F',
-    marginVertical: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderRadius: 20,
-  },
-  albumImage: {
-    height: 90,
-    width: 90,
-    borderRadius: 45,
-    borderColor: '#868686',
-    borderWidth: 2,
-  },
-  wrapper: {
+  modalOverview: {
+    backgroundColor: 'rgba(0,0,0,.5)',
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalWindow: {
+    height: '20%',
+    width: '80%',
+    borderRadius: 20,
+    backgroundColor: '#1F1F1F',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    borderWidth: 3,
+    borderColor: '#868686',
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 3,
+    borderColor: '#868686',
+    borderRadius: 25,
+    height: 50,
+    width: '90%',
+  },
+  header: {
+    fontSize: 25,
+    color: '#828282',
   },
   text: {
     color: '#828282',
-    justifyContent: 'space-around',
   },
 });
 

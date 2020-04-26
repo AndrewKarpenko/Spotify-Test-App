@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, SafeAreaView, StyleSheet} from 'react-nati
 import Sound from 'react-native-sound';
 import {useDispatch} from 'react-redux';
 
-import { EMIT_ERROR } from '../../actions/types';
+import {EMIT_ERROR} from '../../actions/types';
 
 const Player = ({route}) => {
 
