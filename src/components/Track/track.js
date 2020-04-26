@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 
 const Track = (props) => {
   return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import PropTypes from 'prop-types';
 
 import {noImageUrl} from '../../config';
 
@@ -75,4 +76,3 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   }
 });
-

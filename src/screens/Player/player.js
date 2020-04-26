@@ -1,6 +1,9 @@
 import React, {useEffect} from 'react';
 import {View, Text, TouchableOpacity, SafeAreaView, StyleSheet} from 'react-native';
 import Sound from 'react-native-sound';
+import {useDispatch} from 'react-redux';
+
+import { EMIT_ERROR } from '../../actions/types';
 
 const Player = ({route}) => {
 
@@ -9,10 +12,11 @@ const Player = ({route}) => {
   useEffect(() => {
     return () => stop();
   }, []);
+  const dispatch = useDispatch();
 
   const whoosh = new Sound(route.params.url, null, (error) => {
     if (error) {
-      console.log('failed to load the sound', error);
+      dispatch({type: EMIT_ERROR});
     }
   });
 
@@ -60,6 +64,7 @@ export default Player;
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    paddingHorizontal: 20,
     backgroundColor: '#4C4C4C',
   },
   button: {
@@ -77,6 +82,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   captionText: {
+    textAlign: 'center',
     fontSize: 50,
     color: '#828282',
   },
