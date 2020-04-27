@@ -8,7 +8,7 @@
 4. Install CocoaPods using `sudo gem install cocoapods`
 5. Install React-native CLI
 6. `yarn`
-&. `cd ios && pod install && cd ..`
+7. `cd ios && pod install && cd ..`
 
 ### Building on iOS
 
