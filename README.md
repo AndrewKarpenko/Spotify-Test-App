@@ -2,7 +2,7 @@
 
 ### Environment Setup
 
-1. Install Java (JDK 1.8)
+1. Install Java
 2. Install Android Studio for Android
 3. Install Xcode for iOS
 4. Install CocoaPods using `sudo gem install cocoapods`
