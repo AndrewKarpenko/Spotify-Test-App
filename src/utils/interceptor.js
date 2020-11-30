@@ -1,5 +1,4 @@
 import axios from 'axios';
-import AsyncStorage from '@react-native-community/async-storage';
 
 import {HOST} from '../config';
 
@@ -9,7 +8,7 @@ export const instance = axios.create({
 
 const reqInt = instance.interceptors.request.use(
   async (config) => {
-    config.headers['Authorization'] = await AsyncStorage.getItem('access_token');
+    config.headers['Accept']= `application/json`;
     return config;
   },
   error => Promise.reject(error),

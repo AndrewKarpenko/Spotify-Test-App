@@ -8,8 +8,6 @@ import {closeErrors} from './src/actions/errorAction';
 
 import store from './src/store';
 
-import getAccessToken from './src/utils/getAccessToken';
-
 const App = () => {
 
   const [visible, setVisible] = useState(false);
@@ -26,7 +24,6 @@ const App = () => {
   const unsubscribe = store.subscribe(getError);
 
   useEffect(() => {
-    getAccessToken();
     return unsubscribe;
   }, []);
 
