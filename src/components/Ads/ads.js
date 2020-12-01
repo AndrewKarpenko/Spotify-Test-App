@@ -10,7 +10,7 @@ const Ads = (props) => {
   const {data} = props;
   const navigation = useNavigation();
 
-  const toDetails = () => navigation.navigate('Details');
+  const toDetails = () => navigation.navigate('Details', {data});
 
   return (
     <TouchableOpacity onPress={toDetails} style={styles.itemWrapper}>

@@ -24,8 +24,8 @@ const Main = () => {
         scrollEventThrottle={16}
         onMomentumScrollEnd={loadMore}
         contentContainerStyle={styles.scrollView}>
-        {[...vips, ...ads].map((item) => (
-          <Ads data={item} />
+        {[...vips, ...ads].map((item, index) => (
+          <Ads key={index} data={item} />
         ))}
       </ScrollView>
     </SafeAreaView>

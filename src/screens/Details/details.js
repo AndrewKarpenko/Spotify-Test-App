@@ -1,20 +1,54 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
   SafeAreaView,
   StyleSheet,
+  ScrollView,
+  Image,
+  Dimensions,
 } from 'react-native';
-import Sound from 'react-native-sound';
-import {useDispatch} from 'react-redux';
 
-import {emitError} from '../../actions/errorAction';
+const {width} = Dimensions.get('screen');
 
 const Details = ({route}) => {
+  const ads = route.params.data;
+
   return (
     <SafeAreaView style={styles.safeArea}>
-      <View />
+      <View style={styles.flexBox}>
+        <ScrollView horizontal>
+          <View style={styles.imageWrapper}>
+            {ads.photos.map((item, index) => (
+              <>
+                <Image key={index} style={styles.image} source={{uri: item}} />
+                <View style={styles.separator} />
+              </>
+            ))}
+          </View>
+        </ScrollView>
+        <View style={styles.priceNameWrapper}>
+          <View style={styles.priceWrapper}>
+            <Text style={styles.priceNameText}>
+              {ads.price} {ads.currency}
+            </Text>
+          </View>
+          <View style={styles.priceNameSeparator} />
+          <View style={styles.nameWrapper}>
+            <Text style={styles.priceNameText}>{ads.name}</Text>
+          </View>
+        </View>
+      </View>
+      <View style={{flex: 1}}>
+        <View>
+          <Text style={styles.headerText}>City</Text>
+          <Text style={styles.text}>{ads.region.name}</Text>
+        </View>
+        <View>
+          <Text style={styles.headerText}>Description</Text>
+          <Text style={styles.text}>{ads.description}</Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -27,29 +61,45 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#4C4C4C',
   },
-  button: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-    borderWidth: 3,
-    borderColor: '#868686',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  captionWrapper: {
+  flexBox: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  captionText: {
-    textAlign: 'center',
-    fontSize: 50,
-    color: '#828282',
-  },
-  buttonWrapper: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-around',
+  imageWrapper: {
     flexDirection: 'row',
+  },
+  image: {
+    aspectRatio: 1,
+    width: width - 50,
+  },
+  separator: {
+    height: '100%',
+    width: 5,
+  },
+  priceNameText: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#fff',
+  },
+  priceNameSeparator: {
+    width: 5,
+    backgroundColor: '#333',
+  },
+  priceWrapper: {
+    width: '30%',
+  },
+  nameWrapper: {
+    width: '70%',
+  },
+  priceNameWrapper: {
+    flexDirection: 'row',
+    borderWidth: 5,
+    borderColor: '#333',
+  },
+  headerText: {
+    fontSize: 25,
+    color: '#fff',
+  },
+  text: {
+    color: '#fff',
   },
 });
