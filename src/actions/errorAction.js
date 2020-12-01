@@ -1,6 +1,4 @@
-import {
-  CLOSE_ERROR, EMIT_ERROR
-} from './types';
+import {CLOSE_ERROR, EMIT_ERROR} from './types';
 
 export const closeErrors = () => (dispatch) => {
   dispatch({

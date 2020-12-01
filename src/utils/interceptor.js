@@ -8,10 +8,10 @@ export const instance = axios.create({
 
 const reqInt = instance.interceptors.request.use(
   async (config) => {
-    config.headers['Accept']= `application/json`;
+    config.headers['Accept'] = `application/json`;
     return config;
   },
-  error => Promise.reject(error),
+  (error) => Promise.reject(error),
 );
 
 axios.interceptors.request.eject(reqInt);

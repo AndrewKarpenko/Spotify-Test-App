@@ -9,7 +9,6 @@ import {closeErrors} from './src/actions/errorAction';
 import store from './src/store';
 
 const App = () => {
-
   const [visible, setVisible] = useState(false);
 
   const getError = () => {
@@ -29,32 +28,17 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Modal
-        animationType='fade'
-        transparent
-        visible={visible}
-      >
-        <View
-          style={styles.modalOverview}
-        >
-          <View
-            style={styles.modalWindow}
-          >
-            <Text style={styles.header}>
-              Something went wrong
-            </Text>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={closeError}
-            >
-              <Text style={styles.text}>
-                DISMISS
-              </Text>
+      <Modal animationType="fade" transparent visible={visible}>
+        <View style={styles.modalOverview}>
+          <View style={styles.modalWindow}>
+            <Text style={styles.header}>Something went wrong</Text>
+            <TouchableOpacity style={styles.button} onPress={closeError}>
+              <Text style={styles.text}>DISMISS</Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
-      <Navigator/>
+      <Navigator />
     </Provider>
   );
 };
@@ -95,4 +79,3 @@ const styles = StyleSheet.create({
     color: '#828282',
   },
 });
-

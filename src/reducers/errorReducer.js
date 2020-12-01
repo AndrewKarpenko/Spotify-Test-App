@@ -1,9 +1,7 @@
-import {
-  EMIT_ERROR, CLOSE_ERROR
-} from '../actions/types';
+import {EMIT_ERROR, CLOSE_ERROR} from '../actions/types';
 
 const initialState = {
-  error: false
+  error: false,
 };
 
 export default function (state = initialState, action) {
@@ -16,8 +14,8 @@ export default function (state = initialState, action) {
     case CLOSE_ERROR:
       return {
         ...state,
-        error: false
-      }
+        error: false,
+      };
   }
   return state;
 }
